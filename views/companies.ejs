@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Showcase</title>
+    <link rel="stylesheet" href="/stylesheets/companies.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <header>
+        <h1>Our Companies</h1>
+    </header>
+    <main>
+        <div class="company-grid">
+            <% companies.forEach(company => { %>
+                <div class="company-box"><%= company.name || 'Name not found' %></div>
+            <% }) %>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Orders</title>
+    <link rel="stylesheet" href="/stylesheets/daily-orders.css">
+    <link rel="stylesheet" href="/stylesheets/sidebar.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <%- include('partials/sidebar') %>
+
+    <div class="container">
+        <h1>Daily Orders</h1>
+        <% if (orders.length > 0) { %>
+            <% orders.forEach(order => { %>
+                <div class="order-card">
+                    <div class="order-header">
+                        <h2><%= order.user %></h2>
+                        <p>Order Date: <%= new Date(order.date).toLocaleDateString() %></p>
+                    </div>
+                    <div class="order-body">
+                        <table class="product-table">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>company</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Packing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% order.products.forEach(product => { %>
+                                    <tr class="product">
+                                        <td><%= product.product.productName %></td>
+                                        <td><%= product.product.companyName %></td>
+                                        <td><%= product.quantity %></td>
+                                        <td>₹<%= product.price %></td>
+                                        <td><%= product.packing %></td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No orders for today.</p>
+        <% } %>
+    </div>
+
+    <script src="/javascripts/admin.js"></script>
+</body>
+</html>

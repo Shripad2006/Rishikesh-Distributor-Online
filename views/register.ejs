@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>    
+<body>
+    <div class="flash" id="flash-container" >
+        <div class="flash-message">
+    
+            <% if (messages.success) { %>
+                <div class="flash-message success">
+                    <%= messages.success %>
+                </div>
+            <% } %>
+            <% if (messages.error) { %>
+                <div class="flash-message error">
+                    <%= messages.error %>
+                </div>
+            <% } %>
+        </div>
+  </div>
+    <div class="background">
+        <div class="img1">
+            <img src="/images/Frontend-images/mandala.png" alt="mandala img">
+        </div>
+        <div class="img2">
+            <img src="/images/Frontend-images/mandala.png" alt="mandala img">
+        </div>
+        <div class="box">
+            <h1 class="heading">Register</h1>
+            <div class="form-container">
+                <form action="/users/register" method="post" enctype="multipart/form-data">
+                    <div class="form">
+                        <div class="form-1">
+                            <div class="input-group">
+                                <label for="fullName">Full Name</label>
+                                <input class="input" type="text" name="fullName" id="fullName" placeholder="Enter your full name" accept="image/*" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="userName">Username</label>
+                                <input class="input" type="text" name="userName" id="userName" placeholder="Enter your username" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email</label>
+                                <input class="input" type="email" name="email" id="email" placeholder="Enter your email address" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input class="input" type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="profession">Profession</label>
+                                <select class="input-select" id="profession" name="profession" required >
+                                    <option value="doctor">Doctor</option>
+                                    <option value="medicalStore">Medical Store</option>
+                                    <option value="mr">Medical Representative</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="profilePicture">Upload Your Profile Picture</label>
+                                <label for="profilePicture" class="input-pro">
+                                    Choose File
+                                    <input type="file" name="profilePicture" id="profilePicture" accept="image/*">
+                                </label>
+                            </div>                   
+                        </div>
+                        <div class="form-2">
+                            <div class="input-group">
+                                <label for="address">Your Address for Delivery</label>
+                                <input class="input" type="text" name="address" placeholder="Enter your Address for Delivery" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="pinCode">Pin Code</label>
+                                <input class="input" type="text" name="pinCode" placeholder="Enter your pin code" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="taluka">Taluka</label>
+                                <input class="input" type="text" name="taluka" placeholder="Taluka" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="city">Your City</label>
+                                <input class="input" type="text" name="city" placeholder="City" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="password">Enter Password</label>
+                                <input class="input" type="password" name="password" placeholder="Enter Password" required> 
+                            </div>
+                            <div class="input-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input class="input" type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                            </div>              
+                        </div>
+                    </div>
+                    <div class="btn-container">
+                        <button type="submit" class="btn">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/register.js"></script>
+</body>
+</html>

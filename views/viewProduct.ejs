@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="/stylesheets/viewProduct.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="bg">
+        <div class="box">
+            <a href="/home" class="cross">
+                <img class="cross-img" src="/images/Frontend-images/cross.png" alt="">
+            </a>
+
+            <div class="product-container">
+                <div class="product-image">
+                    <img src="data:image/jpeg;base64,<%= product.productImage.toString('base64') %>" alt="Product Image">
+                </div>
+                <div class="buttons">
+                    <button class="button buy-now" onclick="addToCart()" >Buy Now</button>
+                 
+                    <form id="addToCartForm" action="/home/addtocart/<%= product._id %>" method="POST">
+                        <input type="hidden" name="packing" id="packingInput">
+                        <input type="hidden" name="price" id="priceInput">
+                        <button type="button" class="button add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+            <div class="product-details">
+                <h1 class="product-name"><%= product.productName %></h1>
+                <p class="company-name"><%= product.companyName %></p>
+                <p class="mrp">MRP: ₹<%= product.productPrice[0] %>/-</p>
+                <p class="scheme">Scheme: <%= product.schemes %></p>
+                <div class="packing-options">
+                    <label>Packing Available in:</label>
+                    <% product.productPacking.forEach((option, index) => { %>
+                        <div class="options">
+                            <input type="radio" id="option<%= index %>" name="packing" value="<%= option %>" class="option-input" data-price="<%= product.productPrice[index] %>">
+                            <label for="option<%= index %>" class="option-label"><%= option %> - ₹<%= product.productPrice[index] %></label>
+                        </div>
+                    <% }); %>
+                </div>
+                <div class="composition">
+                    <label for="compositions">Compositions:</label>
+                    <div class="comp-box">
+                        <p><%= product.productCompositions %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/javascripts/viewProduct.js"></script>
+</body>
+</html>

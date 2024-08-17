@@ -1,0 +1,38 @@
+/* Styles for sidebar */
+.box {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #FBD18A;
+    margin-top: 60px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: block;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;    
+    text-align: center;
+    background-color: #FBD18A;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: larger;
+}
+
+.button:hover {
+    background-color: #e7b765;
+}
+
+/* Styles for main content */
+.content {
+    margin-left: 200px; /* Same as the width of the sidebar plus some space */
+    padding: 20px;
+}

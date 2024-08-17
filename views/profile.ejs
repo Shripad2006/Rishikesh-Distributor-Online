@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+<div class="box">
+
+    <div class="profile-card">
+        <div class="profile-left">
+            <div class="profile-picture">
+                <img src="<%= user.profilePicture %>" alt="Profile Picture">
+            </div>
+            <h2><%= user.userName %></h2>
+            <p><%= user.profession %></p>
+            <div class="profile-info">
+                <p><%= user.phoneNumber %></p>
+                <p><%= user.email %></p>
+                <p><%= user.city %></p>
+            </div>
+        </div>
+        <div class="profile-right">
+            <div class="profile-orders">
+                <div class="order-stats">
+                    <div class="total-orders">
+                        <h4 class="total-order-title">Total Orders</h4>
+                        <p class="total-order-number" data-target='<%= user.orders.length %>'>0</p>
+                    </div>
+                    <div>
+                        <h4 class="recent-orders-title">Recent Orders</h4>
+                        <ul class="recent-orders">
+                            <% orders.forEach(order => { %>
+                                <li>
+                                    <div class="order-date">Order Date: <%= new Date(order.date).toLocaleDateString() %></div>
+                                    <div class="order-items">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Name</th>
+                                                    <th>Company</th>
+                                                    <th>Quantity</th>
+                                                    <th>Packing</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="items">
+                                                <% order.products.forEach(product => { %>
+                                                    <tr>
+                                                        <td><%= product.product ? product.product.productName : 'Product not found' %></td>
+                                                        <td><%= product.product ? product.product.companyName : 'Company name not found' %></td>
+                                                        <td><%= product.quantity %></td>
+                                                        <td><%= product.packing %></td>
+                                                        <td>₹<%= product.price %></td>
+                                                    </tr>
+                                                <% }); %>
+                                            </tbody>
+                                        </table>                                    
+                                    </div>
+                                </li>
+                            <% }) %>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/javascripts/profile.js"></script>
+</html>

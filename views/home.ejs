@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+<body>
+
+    <div class="flash" id="flash-container">
+        <div class="flash-message">
+    
+            <% if (messages.success) { %>
+                <div class="flash-message success">
+                    <%= messages.success %>
+                </div>
+            <% } %>
+            <% if (messages.error) { %>
+                <div class="flash-message error">
+                    <%= messages.error %>
+                </div>
+            <% } %>
+        </div>
+  </div>
+
+    <%- include('partials/header') %>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <button class="search-button">
+            <img class="search-icon" src="/images/Frontend-images/search.png" alt="Search">
+        </button>
+    </div>
+    
+    <div class="products">
+        <div class="products-container">
+            <% products.forEach((product, index) => { %>
+                <div class="product-card">
+                    <a href="/home/product/<%= product._id %>" class="product-link">
+                        <div class="product-image">
+                            <img id="product-image-<%= index %>" src="data:image/jpeg;base64,<%= product.productImage.toString('base64') %>" alt="product image" class="productImage">
+                        </div>
+                        <div class="details">
+
+                            <h3><%= product.productName %></h3>
+                            <p><%= product.companyName %></p>
+                            <div class="pricing">
+                                <p>Starting Price:</p><h3> ₹<%=product.productPrice[0]%>/-</h3>                  
+                            </div>
+                        </div>
+                        
+                            <button type="submit" class="view-product" >
+                                View Product
+                            </button>
+                        
+                    </a>
+                   
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    
+            
+            
+    
+    <script src="/javascripts/home.js"></script>
+</body>
+</html>

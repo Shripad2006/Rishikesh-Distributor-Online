@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Orders</title>
+    <link rel="stylesheet" href="/stylesheets/total-orders.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <%- include('partials/sidebar') %>
+
+    <div class="content">
+        <header>
+            <h1>Total Orders</h1>
+        </header>
+        <main>
+            <% orders.forEach(order => { %>
+                <div class="order-card">
+                    <h3><%= order.user %></h3>
+                    <p>Order Date: <%= new Date(order.date).toLocaleDateString() %></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Company</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Packing</th>
+                            </tr>
+                        </thead>
+                        <tbody class="items">
+                            <% order.products.forEach(product => { %>
+                                <tr>
+                                    <td><%= product.product ? product.product.productName : 'Product not found' %></td>
+                                    <td><%= product.product ? product.product.companyName : 'Company name not found' %></td>
+                                    <td><%= product.quantity %></td>
+                                    <td>₹<%= product.price %></td>
+                                    <td><%= product.packing %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            <% }); %>
+        </main>
+    </div>
+</body>
+</html>

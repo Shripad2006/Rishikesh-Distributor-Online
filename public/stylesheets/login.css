@@ -1,0 +1,197 @@
+.background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FCE9C9;   
+    overflow: hidden; 
+}
+
+.box {
+    height: 500px;
+    width: 300px;
+    background-color: #FBD18A;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.input {
+    background-color: #ffe8c3; 
+    border: none;    
+    font-size: larger;
+    padding: 10px;
+    margin: 5px;    
+    border-radius: 5px;
+    width: 100%; 
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    resize: none;
+}
+
+.submit {
+    background-color: #12A7B3;
+    border: none;
+    font-size: larger;
+    padding: 10px 20px;
+    margin: 10px 0;
+    margin-bottom: 30%;
+    color: white;
+    border-radius: 5px;
+    width: 60%;
+    box-sizing: border-box;
+    cursor: pointer;
+    align-self: center;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+    color: #242424;
+    font-size: 50px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img{
+    object-fit: contain;
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-container{
+    
+    background-color:#F3516B ;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px; /* Adjust the size as needed */
+    height: 90px;
+    margin: 20px;
+    
+}
+
+.center-img{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.img1 {
+   
+    
+    object-fit: contain;
+    position: absolute; /* Changed to absolute positioning */
+    left: 49%; /* Adjusted position */
+    transform: translateX(-50%); /* Center horizontally */
+    bottom: 20px; /* Adjusted bottom positioning */
+    animation: rotateClockwise 15s linear infinite; /* Animation properties */
+    transform-origin: center center; /* Rotate around the center */
+
+}
+
+.img2 {
+
+
+    object-fit: contain;
+    position: absolute; /* Changed to absolute positioning */
+    right: 49%; /* Adjusted position */
+    transform: translateX(50%); /* Center horizontally */
+    top: 20px; /* Adjusted top positioning */
+    animation: rotateCounterClockwise 15s linear infinite; /* Animation properties */
+    transform-origin: center center; /* Rotate around the center */
+
+}
+
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.flash {
+    position: fixed;
+    bottom: 100px; /* Adjust the distance from the bottom as needed */
+    right: 40px; /* Adjust the distance from the right as needed */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.flash-message {
+    animation: slideIn 0.5s ease forwards;
+    /* Adjust the animation duration and easing as desired */
+}
+
+.flash-message.success {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border: 1px solid #155724;
+    width: fit-content;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-message.error {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border:1px solid #721c24;
+    width: fit-content;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

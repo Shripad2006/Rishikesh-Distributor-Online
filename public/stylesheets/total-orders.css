@@ -1,0 +1,52 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FCE9C9;
+    color: #333;
+}
+
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.order-card {
+    background-color: #FBD18A;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.items{
+    background-color: #FCE9C9;
+   
+}
+
+.order-card h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.order-card p {
+    margin: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #FCE9C9;
+}
