@@ -13,7 +13,7 @@ const flash = require('connect-flash');
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     debug("Connected to MongoDB successfully");
   })
