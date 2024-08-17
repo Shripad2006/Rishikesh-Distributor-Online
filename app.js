@@ -13,7 +13,11 @@ const flash = require('connect-flash');
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+
+const MONGODB_URI= "mongodb+srv://shripadrkatta:UNbsF78So1LG8xsV@rishikesh-distributor-o.anwo7vw.mongodb-dev.net/Rishikesh-Distributor-Online?retryWrites=true&w=majority"
+
+
+mongoose.connect(MONGODB_URI)
   .then(() => {
     debug("Connected to MongoDB successfully");
   })
@@ -34,7 +38,7 @@ app.use(expressSession({
     secret: process.env.JWT_KEY,
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }), 
+    store: MongoStore.create({ mongoUrl: MONGODB_URI }), 
     cookie: { secure: true }
 }));
 app.use(flash());
