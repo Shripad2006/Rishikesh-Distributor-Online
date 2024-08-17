@@ -1,12 +1,17 @@
-require('dotenv').config(); // Load environment variables at the top
-
+// Load environment variables at the top
+require('dotenv').config();
 const mongoose = require('mongoose');
 const debug = require('debug')("development:mongoose");
+const express = require('express');
+const cookieParser = require("cookie-parser");
+const bodyParser = require('body-parser');
+const path = require("path");
+const expressSession = require('express-session');
+const flash = require('connect-flash');
+const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     debug("Connected to MongoDB successfully");
   })
@@ -16,26 +21,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 module.exports = mongoose.connection;
 
-const express = require('express');
 const app = express();
-const cookieParser = require("cookie-parser");
-const bodyParser = require('body-parser');
-const path = require("path");
-const expressSession = require('express-session');
-const flash = require('connect-flash');
-const PORT = process.env.PORT;
-
-// Import Routes
-const welcomeRouter = require("./routes/welcome");
-const ownerRouter = require("./routes/ownerRouter");
-const productsRouter = require("./routes/productsRouter");
-const usersRouter = require("./routes/usersRouter");
-const homePageRouter = require("./routes/homePageRouter");
-const profileRouter = require("./routes/profileRouter")
-const orderRouter = require('./routes/orderRouter');
-const services = require('./routes/services')
-const contact = require('./routes/contact')
-const attachUserToLocals = require('./middlewares/authMiddleware')
 
 // Middleware
 app.use(express.json());
@@ -50,15 +36,30 @@ app.use(expressSession({
 }));
 app.use(flash());
 
+// Attach flash messages to response locals
 app.use((req, res, next) => {
     res.locals.messages = req.flash();
     next();
 });
-app.use(attachUserToLocals)
+
+// Attach user to locals
+const attachUserToLocals = require('./middlewares/authMiddleware');
+app.use(attachUserToLocals);
 
 // Static files
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+
+// Import Routes
+const welcomeRouter = require("./routes/welcome");
+const ownerRouter = require("./routes/ownerRouter");
+const productsRouter = require("./routes/productsRouter");
+const usersRouter = require("./routes/usersRouter");
+const homePageRouter = require("./routes/homePageRouter");
+const profileRouter = require("./routes/profileRouter");
+const orderRouter = require('./routes/orderRouter');
+const servicesRouter = require('./routes/services');
+const contactRouter = require('./routes/contact');
 
 // Routes
 app.use('/', welcomeRouter);
@@ -66,10 +67,10 @@ app.use('/owner', ownerRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/home', homePageRouter);
-app.use('/profile',profileRouter);
+app.use('/profile', profileRouter);
 app.use('/order', orderRouter);
-app.use('/services', services);
-app.use('/contact', contact );
+app.use('/services', servicesRouter);
+app.use('/contact', contactRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
