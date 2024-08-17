@@ -1,12 +1,27 @@
 require('dotenv').config();
+const mongoose = require('mongoose');
+const debug = require('debug')("development:mongoose");
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    debug("Connected to MongoDB successfully");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err.message);
+  });
+
+module.exports = mongoose.connection;
 const express = require('express');
 const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require('body-parser');
 const path = require("path");
-const mongoose = require('./config/mongoose-connection');
 const expressSession = require('express-session');
 const flash = require('connect-flash');
+const PORT = process.env.PORT;
 
 // Import Routes
 const welcomeRouter = require("./routes/welcome");
@@ -52,6 +67,6 @@ app.use('/profile',profileRouter);
 app.use('/order', orderRouter);
 app.use('/services', services);
 
-app.listen(3001, () => {
-    console.log("Server is running on port 3001");
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
