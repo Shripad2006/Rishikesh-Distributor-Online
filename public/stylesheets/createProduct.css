@@ -1,0 +1,137 @@
+body {
+    font-family: "Istok Web", sans-serif;
+    background-color: #FCE9C9;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+}
+
+
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+    width: calc(100% - 200px);
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.h1 {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.box-container {
+    background-color: #FBD18A;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 850px;
+    width: 90%;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box-1, .box-2 {
+    width: 48%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000000;
+    font-weight: 700;
+}
+
+input[type="text"], input[type="file"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #FCE9C9;
+    outline-color: #F4733D;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+button[type="button"] {
+    background-color: #12A7B3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #12A7B3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.flash {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    z-index: 1000;
+}
+
+.flash-message {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.flash-message.success {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border: 1px solid #155724;
+    width: fit-content;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-message.error {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border: 1px solid #721c24;
+    width: fit-content;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

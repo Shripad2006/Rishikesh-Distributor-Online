@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="/stylesheets/services.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="box-1">
+        <div class="heading">
+            <h1>We Provide Ayurvedic Medicines at Wholesale Price...</h1>
+        </div>
+        <div class="info">
+            <div class="users">
+                <h1 data-target="<%= user.usersCount %>">0</h1>
+                <p style="color: rgb(29, 29, 29);">Total Users</p>
+            </div>
+            <div class="orders">
+                <h1 data-target="<%= user.productCount %>">0</h1>
+                <p style="color: rgb(30, 30, 30);">Total Products</p>
+            </div>
+        </div>
+    </div>
+    <div class="box-2">
+        <div class="comment-section">
+            <h2>Review Our Service</h2>
+            <form method="post" class="comment-form" action="/services/comment">
+                <textarea placeholder="Write your comment..." name="comments" required></textarea>
+                <button type="submit">Comment</button>
+            </form>
+            <div class="comments">
+                <% comments.forEach(comment => { %>
+                    <div class="comment-container">
+                        <div class="comment">
+                           <div class="profile">
+
+                               <img class="profile-img" src="<%= user.profilePicture %>" alt="Profile Picture">
+                               
+                               <p class="username"><%= comment.user.userName %></p>
+                            </div>
+                            <p class="text"><%= comment.content %></p>
+                            <form method="post" action="/services/like/<%= comment._id %>" class="like-form">
+                                <p class="likes"><%= comment.likes.length %></p>
+                                <% if (comment.likes.includes(currentUserId)) { %>
+                                    <button type="submit" class="unlike-button">
+                                        <img src="/images/Frontend-images/like.png" alt="Unlike">
+                                    </button>
+                                <% } else { %>
+                                    <button type="submit" class="like-button">
+                                        <img src="/images/Frontend-images/unlike.png" alt="Like">
+                                    </button>
+                                <% } %>                            </form>
+                        </div>
+                        <% if (comment.user._id.toString() === currentUserId) { %>
+                            <form method="post" action="/services/delete-comment/<%= comment._id %>" class="delete-form">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                        <% } %>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/services.js"></script>
+</body>
+</html>

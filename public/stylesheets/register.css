@@ -1,0 +1,318 @@
+/* General styles */
+body {
+    font-family: 'Istok Web', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #FCE9C9;
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+}
+
+body::-webkit-scrollbar {
+    width: 12px; /* Adjust the width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #FCE9C9; /* Background of the scrollbar track */
+}
+
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.box {
+    z-index: 1;
+    background-color: #FBD18A;
+    width: 600px;
+    margin-top: 50px;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%; /* Ensure the box takes up the full width */
+    padding: 15px; /* Adjust padding for mobile devices */
+    margin: 0 auto;
+    
+}
+
+.heading {
+    text-align: center;
+    font-size: 50px; /* Reduced font size for better visibility */
+    color: #434343;
+    margin: 0%;
+
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* Changed to row for side-by-side layout */
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+}
+
+.form-1, .form-2 {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding:20px;
+}
+
+.input-group {
+    flex: 1 1 45%;
+    margin-bottom: 5px;
+}
+
+.input-group label {
+    
+    color: #000000;
+}
+
+.input {
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #FCE9C9;
+    outline-color: #F4733D;
+    font-size: 20px;
+}
+
+.input-select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #FCE9C9;
+    outline-color: #F4733D;
+}
+
+.input-select option {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.input-pro {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #FCE9C9;
+    cursor: pointer;
+    text-align: center;
+}
+
+.input-pro input[type="file"] {
+    display: none;
+}
+
+.btn-container {
+    width: 100%; /* Ensure the button container spans the full width */
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+.btn {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background-color: #12A7B3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 25px;
+    align-items: center;
+}
+
+.btn:hover {
+    background-color: #229ea7;
+}
+
+.img1, .img2 {
+    position: absolute;
+    z-index: 0; /* Ensure images are behind the form */
+}
+
+.img1 {
+    left: 100%;
+    bottom: -30px;
+    transform: translateX(50%);
+    transform: translateY(50%);
+    animation: rotateClockwise 25s linear infinite;
+    transform-origin: center center;
+}
+
+.img2 {
+    right: 100%;
+    top: 30px;
+    transform: translateX(50%);
+    transform: translateY(50%);
+    animation: rotateCounterClockwise 25s linear infinite;
+    transform-origin: center center;
+}
+
+@keyframes rotateClockwise {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise {
+    from {
+        transform: translateX(50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(50%) rotate(-360deg);
+    }
+}
+
+
+.flash {
+    position: fixed;
+    bottom: 100px; /* Adjust the distance from the bottom as needed */
+    right: 40px; /* Adjust the distance from the right as needed */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.flash-message {
+    animation: slideIn 0.5s ease forwards;
+    /* Adjust the animation duration and easing as desired */
+}
+
+.flash-message.success {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border: 1px solid #155724;
+    width: fit-content;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-message.error {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border:1px solid #721c24;
+    width: fit-content;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@media (max-width: 768px) {
+    .box {
+        padding: 15px;
+    }
+
+    .heading {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .img1,.img2{
+        display: none;
+    }
+    .input{
+        width: 330px;
+    }
+    .input-select {
+        width: 330px;
+        padding: 10px;
+        
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: #FCE9C9;
+        outline-color: #F4733D;
+    }
+    
+    .input-select option {
+        padding: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+    .input-pro {
+      
+        width: 330px;
+    
+    }
+    .form{
+        width: 340px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .form-1, .form-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 5px;
+        
+        
+    }
+    .form-container {
+        flex-direction: column; /* Stack forms vertically on mobile */
+    }
+
+    .form-1, .form-2 {
+        width: 100%; /* Ensure forms take up full width */
+    }
+
+    .input-group {
+        margin-bottom: 10px; /* Increase margin for better spacing */
+    }
+
+    .btn {
+        width: 100%; /* Ensure button takes up full width */
+        font-size: 18px; /* Adjust font size for mobile */
+    }
+}

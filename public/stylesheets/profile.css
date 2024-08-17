@@ -1,0 +1,188 @@
+body {
+    font-family: "Istok Web", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FCE9C9;
+    box-sizing: border-box;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.profile-card {
+    display: flex;
+    width: 80%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 90%;
+}
+
+.profile-left {
+    background-color: #12A7B3; /* beige */
+    color: white;
+    padding: 20px;
+    width: 30%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.profile-left .profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    margin-bottom: 10px;
+}
+
+.profile-left h2 {
+    margin: 10px 0;
+}
+
+
+.profile-left p {
+    margin: 0px 0;
+    font-size: 16px;
+}
+
+.profile-right {
+    padding: 20px;
+    width: 60%;
+    background-color: #FFFBEB; /* light beige */
+    color: #333;
+}
+
+.profile-right h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.profile-info p
+ {
+    margin: 0px 0;
+    font-size: 16px;
+}
+
+.profile-orders ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-orders li {
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-date {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.order-items {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.profile-social {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.profile-social a img {
+    width: 24px;
+    height: 24px;
+}
+
+.recent-orders {
+    overflow-y: scroll;
+    height: 400px; /* Adjust the height as needed */
+    
+   
+}
+.total-orders{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.total-order-number{
+    font-size: 100px;
+    padding: 0%;
+    margin: 0%;
+    color: #FB6534;
+}
+.total-order-title{
+    font-size: 30px;
+    margin: 0%;
+}
+.recent-orders-title{
+    font-size: 25px;
+    justify-content: center;
+    text-align: center;
+    margin: 0%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #FCE9C9;
+}
+.recent-orders::-webkit-scrollbar {
+    width: 10px;
+}
+
+.recent-orders::-webkit-scrollbar-track {
+    background: #FFFBEB; /* light beige */
+}
+
+.recent-orders::-webkit-scrollbar-thumb {
+    background-color: #9a9a9a; /* beige */
+    border-radius: 10px;
+    border: 3px solid #FFFBEB; /* light beige */
+}
+
+@media (max-width:768px) {
+    .box{
+        width: 100%;
+        margin:0%;
+
+}
+.profile-card {
+    flex-direction: column;
+    width: 98%;
+    overflow: hidden;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    .profile-left {
+        width: 100%;
+    }
+    .profile-right {
+        width: 100%;
+    }
+    .profile-orders{
+        height: 650px;
+    }
+}

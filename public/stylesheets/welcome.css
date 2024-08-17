@@ -1,0 +1,281 @@
+*{
+    margin: 0%;
+    padding: 0%;
+
+}
+body {
+    font-family: "Istok Web", sans-serif;
+    background-color: #FCE9C9;
+    margin: 0;
+    padding: 0; 
+    overflow: hidden;
+}
+.body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+}
+.left-side{
+
+    width: 50%;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title{
+    height: 60%; 
+    font-size: 2.2em;
+    font-style: normal; 
+    margin-left: 10%;
+    margin-top: 15%;
+    white-space: wrap;
+}
+
+.blinking-cursor {
+    font-weight: bold;
+    font-size: auto;
+    color: #000000;
+    animation: blink 0.9s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.buttons{
+    display: flex;
+    margin-top: 10%;
+}
+.buttons a {
+    
+    text-decoration: none;
+    padding: 5px ; 
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    transition: background-color 0.5s ease, transform 0.3s ease;
+}
+.register{
+    background-color: #FB6534;
+}
+.login{
+    background-color: #0DB9C3;
+} 
+
+.register:hover{    
+    background-color: #df6036;
+    transform: scale(1.05);
+}
+.login:hover {
+    background-color: #14b9be;
+    transform: scale(1.05);
+}
+
+.img1{
+    position: absolute; /* Position the image absolutely */
+    top: calc(5% - 70px); /* Adjust the top position */
+    left: calc(70% - 40px); /* Adjust the left position */
+    height: auto;
+    width: 40%;
+    transform: translateX(-50%); /* Center horizontally */
+    bottom: 20px; 
+    animation: rotateClockwise 25s linear infinite; /* Animation properties */
+    transform-origin: center center; /* Rotate around the center */    
+}
+
+.img2{
+    position: absolute; /* Position the image absolutely */
+    top: calc(50% - 60px); /* Adjust the top position */
+    left: calc(50% - 70px); /* Adjust the left position */
+    height: auto;
+    width: 25%;
+    transform: translateX(-50%); /* Center horizontally */
+    bottom: 20px; 
+    animation: rotateCounterClockwise 25s linear infinite; /* Animation properties */
+    transform-origin: center center; /* Rotate around the center */
+}
+.img3{
+    position: absolute; /* Position the image absolutely */
+    top: calc(80% - 70px); /* Adjust the top position */
+    left: calc(70% - 70px); /* Adjust the left position */
+    height: auto;
+    width: 40%;
+    transform: translateX(-50%); /* Center horizontally */
+    bottom: 20px; 
+    animation: rotateClockwise 25s linear infinite; /* Animation properties */
+    transform-origin: center center; /* Rotate around the center */
+}
+
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateCounterClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+
+
+.flash {
+    position: fixed;
+    bottom: 100px; /* Adjust the distance from the bottom as needed */
+    right: 40px; /* Adjust the distance from the right as needed */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.flash-message {
+    animation: slideIn 0.5s ease forwards;
+    /* Adjust the animation duration and easing as desired */
+}
+
+.flash-message.success {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border: 1px solid #155724;
+    width: fit-content;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-message.error {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: 600;
+    border:1px solid #721c24;
+    width: fit-content;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .body {
+        flex-direction: column;
+        align-items: center;
+        justify-content:first baseline;
+        
+    }
+
+    .left-side {
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+    
+    .title {
+        
+        height: 380px;
+        margin: 0 auto;
+        font-size: 1.8em;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .buttons {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5%;
+        gap: 10px;
+        margin: 10px;
+    }
+
+    .buttons a {
+        width: 80%;
+        margin: 10px 0;
+        font-size: 22px;
+    }
+
+    .img1{
+        position: absolute; /* Position the image absolutely */
+        top: calc(95% - 125px); /* Adjust the top position */
+        left: calc(5% - 175px); /* Adjust the left position */
+        height: auto;
+        width: 80%;
+        transform: translateX(-50%); /* Center horizontally */
+        bottom: 20px; 
+        animation: rotateClockwise 25s linear infinite; /* Animation properties */
+        transform-origin: center center; /* Rotate around the center */    
+    }
+    
+    .img2{
+        position: absolute; /* Position the image absolutely */
+        top: calc(95% - 125px); /* Adjust the top position */
+        left: calc(95% - 140px); /* Adjust the left position */
+        height: auto;
+        width: 80%;
+        transform: translateX(-50%); /* Center horizontally */
+        bottom: 20px; 
+        animation: rotateCounterClockwise 25s linear infinite; /* Animation properties */
+        transform-origin: center center; /* Rotate around the center */    
+    }
+    .img3{
+        position: absolute; /* Position the image absolutely */
+        top: calc(80% - 50px); /* Adjust the top position */
+        left: calc(50% - 60px); /* Adjust the left position */
+        height: auto;
+        width: 30%;
+        transform: translateX(-50%); /* Center horizontally */
+        bottom: 20px; 
+        animation: rotateClockwise 25s linear infinite; /* Animation properties */
+        transform-origin: center center; /* Rotate around the center */
+    }
+    
+    @keyframes rotateClockwise {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes rotateCounterClockwise {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+}

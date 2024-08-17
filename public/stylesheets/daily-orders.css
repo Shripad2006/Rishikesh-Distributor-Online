@@ -1,0 +1,150 @@
+body {
+    font-family: "Istok Web", sans-serif;
+    background-color: #FCE9C9;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: sticky;
+    top: 80px;
+    /* Adjust this as needed */
+    z-index: 100;
+    /* Ensure it appears above other content */
+}
+
+.search-form {
+
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    padding: 10px;
+    /* Optional padding for better spacing */
+}
+
+.search-bar {
+    font-size: large;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    padding-inline-start: 10px;
+    border-radius: 50px;
+    background-color: #bae9eb;
+}
+
+.search-button {
+    border: none;
+    border-radius: 50px;
+    background-color: #bae9eb;
+}
+
+.search-icon {
+    height: 20px;
+    padding: 10px;
+}
+
+
+
+.container {
+
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1b1b1b;
+    margin-bottom: 30px;
+}
+
+.order-card {
+    background-color: #FBD18A;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-left: 200px;
+}
+
+.order-header {
+    border-bottom: 1px solid #5a5a5a;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.order-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.order-header p {
+    margin: 0;
+    color: #343434;
+}
+
+.order-body {
+    padding-top: 10px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.product-table th,
+.product-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #FCE9C9;
+    color: #010101;
+}
+
+.product-table tr {
+    background-color: #FCE9C9;
+}
+
+@media (max-width:768px) {
+    .search-bar {
+        width: 70%;
+        height: 15px;
+    }
+    .search-icon {
+        height: 15px;
+        padding: 10px;
+    }
+    .search-container {
+       
+        top: 60px;
+        
+    }
+    .order-card {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 15px;
+        margin-left: 0%;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.8em;
+        overflow-x: auto;
+        display: block;
+    }
+
+    th,
+    td {
+        padding: 6px;
+    }
+}

@@ -1,0 +1,83 @@
+body {
+    font-family: "Istok Web", sans-serif;
+}
+
+.box {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #FBD18A;
+    margin-top: 60px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar {
+    transform: translateX(0); /* Sidebar visible by default on larger screens */
+}
+
+.sidebar.active {
+    transform: translateX(-100%); /* Hide sidebar when toggle is active */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: block;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: #FBD18A;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: larger;
+}
+
+.toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #e7b765;
+}
+
+/* Styles for main content */
+.content {
+    margin-left: 200px; /* Align content next to sidebar */
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Off-screen on small screens by default */
+    }
+    
+    .sidebar.active {
+        transform: translateX(0); /* Slide in when active */
+    }
+    
+    .toggle {
+        display: block;
+        margin-top: 40px; 
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 60px 20px 20px 20px;
+    }
+}

@@ -1,0 +1,238 @@
+body {
+    font-family: "Istok Web", sans-serif;
+    background-color: #FCE9C9; /* Assuming a dark background similar to the image */
+    color: #202020; /* White text on dark background */
+    margin: 0;
+    padding: 0;
+}
+
+.box-1 {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #FCE9C9; 
+    
+}
+
+.heading h1{
+    font-size:3em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2em;
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    font-size: 40px;
+    
+}
+h1{
+    font-size: 2.5em;
+    font-weight: 500;
+    margin-bottom: 0%;
+}
+h2{
+    font-size: 40px;
+}
+p{
+    margin: 0%;
+}
+.users{
+    color: #12A7B3;
+}
+.orders{
+    color: #FB6534;
+}
+
+.box-2{
+    height: 100vh;
+    
+}
+
+.comment-section {
+    max-width: 100%;
+    height: 100vh;
+   margin-top: 50px;
+    background-color: #FCE9C9;
+    padding: 20px;
+    border-radius: 5px;
+
+}
+
+.comment-section h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.comment-form textarea {
+    resize: vertical;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.comment-form button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #12A7B3;
+    color: white;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #3aacb4;
+}
+
+.comments {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+}
+
+.comment {
+    padding: 5px;
+    
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment .username {
+    font-weight: bold;
+   
+    color: #12A7B3;
+}
+
+.comment .text {
+   margin: 15px;
+    margin-left: 45px;
+}
+.comment-container {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.comment {
+    flex: 1;
+    flex-direction: row;
+}
+
+.delete-form {
+    margin-left: 10px;
+}
+
+.delete-button {
+    background-color: #FB6534;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+/* Add this to your services.css */
+.like-button, .unlike-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.like-button img, .unlike-button img {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+}
+.like-form{
+    display: flex;
+    margin: 10px;
+}
+.profile-img{
+    width: 35px;
+    height: 35px;
+}
+.profile{
+    display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+    align-items: center;
+}
+.replies {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #ddd;
+}
+.reply-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.reply-container {
+    margin-bottom: 10px;
+}
+
+.reply-username {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #12A7B3;
+
+}
+
+.reply-text {
+    margin-bottom: 5px;
+}
+
+
+@media (max-width:768px) {
+    h1{
+        font-size: 1.5em;
+    }
+    .heading h1 {
+        font-size: 2em;     
+    }
+    h2{
+        font-size: 2em;
+    }
+    p{
+        font-size: 20px;
+    }
+    .info{
+        gap: 50px;
+    }
+    .comment-section {
+        margin: 0%;
+    }
+    .text{
+        margin: 0%;
+        font-size: large;
+    }
+}

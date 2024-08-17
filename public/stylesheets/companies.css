@@ -1,0 +1,90 @@
+body {
+    font-family: "Istok Web", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FCE9C9;
+}
+
+header {
+    background-color: #FCE9C9;
+    color: #171717;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.company-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.company-box {
+    background-color: #ffffff;
+    border: 1px solid #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 550;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+.company-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.company-img {
+    width: 100%; /* Make image responsive */
+    height: 100%; /* Maintain aspect ratio */
+    max-height: 70px; /* Limit the height */
+    object-fit: contain; /* Ensure the image covers the area without distortion */
+}
+
+h2 {
+    text-decoration: none;
+    font-size:20px; /* Responsive font size */
+    margin: 0;
+    padding-top: 5px;
+    overflow-wrap: break-word; /* Ensure long words break properly */
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+p{
+    font-size: 14px;
+    color: #424242;
+}
+
+/* Media queries for further fine-tuning */
+@media (max-width: 600px) {
+    .company-grid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+    }
+
+    .company-box {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Smaller font size on smaller screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .company-box {
+        font-size: 1.6em; /* Larger font size on larger screens */
+    }
+
+    h2 {
+        font-size: 2.2rem; /* Larger font size on larger screens */
+    }
+}

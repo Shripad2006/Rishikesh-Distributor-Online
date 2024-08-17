@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+            Wel-come to Rishikesh Distributor Online     
+    </title>
+    <link rel="stylesheet" href="/stylesheets/welcome.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="flash" id="flash-container" >
+        <div class="flash-message">
+    
+            <% if (messages.success) { %>
+                <div class="flash-message success">
+                    <%= messages.success %>
+                </div>
+            <% } %>
+            <% if (messages.error) { %>
+                <div class="flash-message error">
+                    <%= messages.error %>
+                </div>
+            <% } %>
+        </div>
+  </div>
+    <div class="body">
+        <div class="left-side">
+
+            <div class="title">
+                <h1>                   
+                    <span id="typing-text"></span><span class="blinking-cursor">.</span>
+                </h1>
+            </div>
+            <div class="buttons">
+                <a href="/users/register" class="register">Register</a>
+                <a href="/users/login" class="login">Login</a>
+            </div>
+        </div>
+            <div class="images">
+                <img class="img1" src="/images/Frontend-images/mandala.png" alt="mandala img">
+                <img class="img2" src="/images/Frontend-images/mandala.png" alt="mandala img">
+                <img class="img3" src="/images/Frontend-images/mandala.png" alt="mandala img">
+        </div>
+    </div>
+    <script src="/javascripts/welcome.js"></script>
+</body>
+</html>

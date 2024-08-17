@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="flash" id="flash-container">
+        <div class="flash-message">
+            <% if (messages.success) { %>
+                <div class="flash-message success">
+                    <%= messages.success %>
+                </div>
+            <% } %>
+            <% if (messages.error) { %>
+                <div class="flash-message error">
+                    <%= messages.error %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <%- include('partials/header') %>
+
+    <div class="search-container">
+        <form action="/home" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search..." class="search-bar" required>
+            <button type="submit" class="search-button">
+                <img class="search-icon" src="/images/Frontend-images/search.png" alt="Search">
+            </button>
+        </form>
+    </div>
+
+    <div class="products">
+        <div class="products-container">
+            <% if (products.length > 0) { %>
+                <% products.forEach((product, index) => { %>
+                    <div class="product-card">
+                        <a href="/home/product/<%= product._id %>" class="product-link">
+                            <div class="product-image">
+                                <img id="product-image-<%= index %>" src="data:image/jpeg;base64,<%= product.productImage.toString('base64') %>" alt="product image" class="productImage">
+                            </div>
+                            <div class="details">
+                                <h3><%= product.productName %></h3>
+                                <p><%= product.companyName %></p>
+                                <div class="pricing">
+                                    <p>Starting Price:</p><h3> ₹<%= product.productPrice[0] %>/-</h3>
+                                </div>
+                            </div>
+                            <button type="submit" class="view-product">View Product</button>
+                        </a>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No products found matching your search.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="/javascripts/home.js"></script>
+</body>
+</html>

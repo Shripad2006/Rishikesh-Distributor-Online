@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="/stylesheets/cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <div class="cart-container">
+            <h1 class="cart-title">Your Cart</h1>
+            <div class="cart-content">
+                <div class="cart-items">
+                    <% if (user.cart && user.cart.length> 0) { %>
+                        <% user.cart.forEach(cartItem=> { %>
+                            <% if (cartItem.product) { %>
+                                
+                                <div class="cart-item" data-id="<%= cartItem.product._id %>"
+                                    data-packing="<%= cartItem.packing %>">
+                                    <img src="data:image/jpeg;base64,<%= cartItem.product.productImage ? cartItem.product.productImage.toString('base64') : '' %>"
+                                    alt="Product Image">
+                                    <div class="cart-item-details">
+                                        <div class="cart-item-info">
+                                            <p class="cart-item-name">
+                                                <%= cartItem.product.productName %>
+                                            </p>
+                                            <p class="cart-item-price">Price: ₹<%= cartItem.price %>/-</p>
+                                            <p class="cart-item-packing">Packing: <%= cartItem.packing %>
+                                            </p>
+                                            <p class="cart-item-scheme">Scheme: <%= cartItem.product.schemes %>
+                                            </p>
+                                        </div>
+                                        <div class="cart-item-quantity">
+                                            <label>Quantity:</label>
+                                            <button class="quantity-button decrease"
+                                            data-id="<%= cartItem.product._id %>">-</button>
+                                            <span class="quantity">
+                                                <%= cartItem.quantity %>
+                                            </span>
+                                            <button class="quantity-button increase"
+                                            data-id="<%= cartItem.product._id %>">+</button>
+                                        </div>
+                                    </div>
+                                    <button class="remove-item" data-id="<%= cartItem.product._id %>"
+                                        data-packing="<%= cartItem.packing %>">Remove</button>
+                                    </div>
+
+                                <% } %>
+                                <% }) %>
+                                <% } else { %>
+                                    <p>No items in the cart.</p>
+                                    <% } %>
+                                </div>
+                                <div class="cart-summary">
+                                    <h2>Summary</h2>
+                                    <p>Total Products: <%= totalProducts %>
+                                    </p>
+                                    <p>Total Items: <span id="total-items">
+                                        <%= totalItems %>
+                                    </span></p>
+                                    <p>Total Amount: <span id="cart-total"> <strong>
+                                        ₹<%= totalAmount %>/-
+                                    </strong>/-</span></p>
+                                    <button class="checkout-button" id="placeOrderButton" >Place Order</button>
+                                </div>
+                            </div>
+                        </div>
+              
+                        <script src="/javascripts/cart.js"></script>
+</body>
+
+</html>

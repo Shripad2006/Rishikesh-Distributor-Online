@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/sidebar.css">
+</head>
+<body>
+   <button class="toggle" onclick="toggleSidebar()">☰</button> 
+    <div class="container">
+        <div class="box sidebar">
+            <div class="buttons">
+                <a href="/owner/add-product" class="button">Create New Product</a>
+                <a href="/owner/daily-orders" class="button">Orders Today</a>
+                <a href="/owner/total-orders" class="button">Total Orders</a>
+                <a href="/owner/users" class="button">Users</a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Main content goes here -->
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

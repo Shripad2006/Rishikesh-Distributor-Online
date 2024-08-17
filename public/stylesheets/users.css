@@ -1,0 +1,121 @@
+body {
+    font-family: "Istok Web", sans-serif;
+    background-color: #FCE9C9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: sticky;
+    top: 80px;
+    /* Adjust this as needed */
+    z-index: 100;
+    /* Ensure it appears above other content */
+}
+
+.search-form {
+
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    padding: 10px;
+    /* Optional padding for better spacing */
+}
+
+.search-bar {
+    font-size: large;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    padding-inline-start: 10px;
+    border-radius: 50px;
+    background-color: #bae9eb;
+}
+
+.search-button {
+    border: none;
+    border-radius: 50px;
+    background-color: #bae9eb;
+}
+
+.search-icon {
+    height: 20px;
+    padding: 10px;
+}
+
+
+/* Ensure the container accounts for the sidebar width */
+.container {
+    width: calc(100% - 220px); /* Subtracting sidebar width + some margin */
+    max-width: 1000px; /* Adjust this as needed */
+    margin-left: 200px; /* Push the content to the right to accommodate the sidebar */
+    padding: 10px;
+    background-color: #FCE9C9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Table styling */
+.users-list {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.users-list th, .users-list td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.users-list th {
+    background-color: #FBD18A;
+    color: #333;
+}
+
+.users-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 70%;
+        height: 15px;
+    }
+    .search-icon {
+        height: 15px;
+        padding: 10px;
+    }
+    .search-container {
+       
+        top: 60px;
+        
+    }
+    .container {
+        margin-left: 0;
+        width: 100%;
+    }
+    .users-list th, .users-list td {
+        padding: 10px 8px;
+        font-size: 0.9em;
+    }
+    .users-list img {
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -1,38 +1,54 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+const cartItemSchema = new mongoose.Schema({
+    product: { type: mongoose.Schema.Types.ObjectId, ref: 'product' },
+    quantity: { type: Number, default: 1 },
+    packing: String,  // Add packing field
+    price: Number     // Add price field
+});
+
+const orderSchema = new mongoose.Schema({
+    products: [cartItemSchema],
+    date:{type:Date, default: Date.now}
+})
 
 const userSchema = mongoose.Schema({
-    fullname : {
-        type:String,
+    fullName: {
+        type: String,
         minLength: 3,
-        trim:true,
+        trim: true,
     },
-    username : String,
-    email : String,
-    phoneNumber : String,
+    userName: String,
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    phoneNumber: String,
     profession: {
         type: String,
         enum: ['doctor', 'medicalStore', 'mr'],
-        required: [true, 'Profession is required']
+        required: [true, 'Profession is required'],
     },
-    picture: String,
-    addressForDelivery: String,
-    pincode: String,
-    Taluka: String,
+    profilePicture: String,
+    address: String,
+    pinCode: String,
+    taluka: String,
     city: String,
-    password: String,
-    confirmPassword: String,
-    cart:{
-        type:Array,
-        default:[],
+    password: {
+        type: String,
+        required: true
     },
+    cart: [cartItemSchema], // Use the updated cartItemSchema
 
-    isAdmin:{
-        type:Boolean
+    isAdmin: {
+        type: Boolean,
+        default:false,
     },
-    orders:{
-        type:Array,
-        default:[]
-    }
-    })
+    orders: [orderSchema],
+    comments:[
+        {type: mongoose.Schema.Types.ObjectId,ref:"Comments"}
+    ]
+});
 
-    module.exports = mongoose.model('users', userSchema)
+module.exports = mongoose.model('User', userSchema);
