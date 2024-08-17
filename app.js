@@ -49,7 +49,7 @@ app.use((req, res, next) => {
 const attachUserToLocals = require('./middlewares/authMiddleware');
 app.use(attachUserToLocals);
 
-// Static files
+// Static file
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
