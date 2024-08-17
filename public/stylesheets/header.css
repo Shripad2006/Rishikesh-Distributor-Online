@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Istok Web", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,6 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000; /* Ensure it stays on top */
+    padding: 10px 0;
 }
 
 .navbar {
@@ -23,9 +24,11 @@ body {
     padding-inline: 10px; 
     color: rgb(0, 0, 0);
     width: 100%;
+    max-width: 1200px; /* Limit the max width for larger screens */
     flex-wrap: wrap;
 }
-.links{
+
+.links {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,14 +39,19 @@ body {
     height: 35px;
 }
 
-
-    .profilePicture{
-        height: 35px;
-        width: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50px;
+.profilePicture {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+.cart-profile{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 20px;
 }
 
 .logout {
@@ -54,21 +62,27 @@ body {
     padding-inline: 10px;
     border-radius: 10px;
     height: 35px;
+    cursor: pointer; /* Add pointer cursor for better UX */
 }
 
 .navbar-brand {
     font-size: 2em;
     font-weight: 510;
-    /* padding-bottom: 25px; */
 }
 
 .navbar-links {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.5s ease; /* Add transition for smooth sliding */
+    
 }
-
+.navbar-links.show {
+    transform: translateX(0); 
+    width: 100%;
+}
 .navbar-links a {
-    font-size: large; /* Corrected duplicated font-size */
+    font-size: large;
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
@@ -77,4 +91,59 @@ body {
     display: none;
     font-size: 1.5em;
     cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0 15px;
+    }
+    .navbar-brand{
+        font-size: 1.5em;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        background: #fce9cc;
+        padding: 15px;
+        margin-top: 10px;
+        position: absolute; /* Position it absolutely */
+        top: 60px; /* Adjust as needed to be below the navbar */
+        left: 0;
+        transform: translateX(100%);
+    }
+    .cart-profile{
+        gap: 5px;
+        display: flex;
+        
+    }
+
+    .navbar-links.show {
+        display: flex;
+        transform: translateX(0);
+        
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .links {
+        flex-direction: column;
+        
+    }
+
+    .logout {
+        width: 100%;
+       
+        text-align: center;
+    }
+
+    .profilePicture, .trolly {
+        margin-right: 10px;
+    }
 }

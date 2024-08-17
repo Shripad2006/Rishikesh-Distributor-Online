@@ -91,9 +91,15 @@ document.getElementById('placeOrderButton').addEventListener('click', async () =
         });
         
         const result = await response.json();
+        
         if (response.ok) {
-            alert(result.message);
-            // Optionally, redirect or update the UI
+            // Check if the server response includes a redirect URL
+            if (result.redirectUrl) {
+                window.location.href = result.redirectUrl; // Redirect to the thank you page
+            } else {
+                alert(result.message);
+                // Optionally, update the UI or handle success
+            }
         } else {
             alert(result.message);
         }

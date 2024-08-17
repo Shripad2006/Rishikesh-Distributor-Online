@@ -1,4 +1,5 @@
-require('dotenv').config();
+require('dotenv').config(); // Load environment variables at the top
+
 const mongoose = require('mongoose');
 const debug = require('debug')("development:mongoose");
 
@@ -14,6 +15,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   });
 
 module.exports = mongoose.connection;
+
 const express = require('express');
 const app = express();
 const cookieParser = require("cookie-parser");
@@ -32,6 +34,7 @@ const homePageRouter = require("./routes/homePageRouter");
 const profileRouter = require("./routes/profileRouter")
 const orderRouter = require('./routes/orderRouter');
 const services = require('./routes/services')
+const contact = require('./routes/contact')
 const attachUserToLocals = require('./middlewares/authMiddleware')
 
 // Middleware
@@ -66,6 +69,7 @@ app.use('/home', homePageRouter);
 app.use('/profile',profileRouter);
 app.use('/order', orderRouter);
 app.use('/services', services);
+app.use('/contact', contact );
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

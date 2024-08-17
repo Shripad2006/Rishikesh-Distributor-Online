@@ -1,3 +1,10 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    font-family: "Istok Web", sans-serif;
+}
 .background {
     position: relative;
     width: 100%;
@@ -44,6 +51,11 @@
     margin-bottom: 25px;
     resize: none;
 }
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .submit {
     background-color: #12A7B3;
@@ -54,7 +66,7 @@
     margin-bottom: 30%;
     color: white;
     border-radius: 5px;
-    width: 60%;
+    width: 120px;
     box-sizing: border-box;
     cursor: pointer;
     align-self: center;
@@ -194,4 +206,87 @@ h1{
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+@media (max-width:480px) {
+    .img-container{
+        margin: 0%;
+        padding: 0%;
+    }
+   
+    .box{
+        height: 450px;
+        width: 250px;
+        background-color: rgba(251, 209, 138);
+        
+    }
+    .input{
+        height: 35px;
+        margin: 10px;
+        
+    }
+    .btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .submit{
+      
+        background-color: #12A7B3;
+        border: none;
+        font-size: larger;
+        padding: 10px 20px;
+        margin: 10px 0;
+        margin-bottom: 30%;
+        color: white;
+        border-radius: 5px;
+        width: 120px;
+        box-sizing: border-box;
+        cursor: pointer;
+        align-self: center;
+    }
+    .img1 {
+   
+    
+    object-fit: contain;
+    position: absolute; /* Changed to absolute positioning */
+    left: 42%; /* Adjusted position */
+    transform: translateX(-50%); /* Center horizontally */
+    bottom: 20px; /* Adjusted bottom positioning */
+    animation: rotateClockwise 15s linear infinite; /* Animation properties */
+    transform-origin: center center; /* Rotate around the center */
+
+}
+
+.img2 {
+
+
+    object-fit: contain;
+    position: absolute; /* Changed to absolute positioning */
+    right: 42%; /* Adjusted position */
+    transform: translateX(50%); /* Center horizontally */
+    top: 20px; /* Adjusted top positioning */
+    animation: rotateCounterClockwise 15s linear infinite; /* Animation properties */
+    transform-origin: center center; /* Rotate around the center */
+
+}
+
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
 }

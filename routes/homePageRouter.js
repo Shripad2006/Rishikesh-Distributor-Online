@@ -3,19 +3,22 @@ const router = express.Router();
 const isLoggedIn = require('../middlewares/isLoggedIn');
 const ProductModel = require('../models/products-model');
 const userModel = require('../models/users-model');
+const SearchMiddleware = require('../middlewares/search');
 
-
-
-router.get('/', isLoggedIn, async (req, res) => {
+// Use SearchMiddleware with the 'products' model for this route
+router.get('/', SearchMiddleware('products'), isLoggedIn, async (req, res) => {
     try {
-        let products = await ProductModel.find();
-        let success = req.flash('success');
-        res.render('home', { products, success });
+        // Use req.results from the middleware
+        const products = req.results;
+        const success = req.flash('success');
+        res.render('home', { products, success,searchQuery: req.searchQuery });
     } catch (error) {
         console.error("Error fetching products:", error);
         res.status(500).send("Error fetching products");
     }
 });
+
+
 
 router.get('/product/:productId', (req, res) => {
     const productId = req.params.productId;
@@ -147,31 +150,9 @@ router.post('/removefromcart/:productId', isLoggedIn, async (req, res) => {
 });
 
 
-router.get('/companies', isLoggedIn, async (req, res) => {
-    try {
-        const companies = await ProductModel.aggregate([
-            {
-                $group: {
-                    _id: "$companyName", 
-                    name: { $first: "$companyName" }
-                }
-            }
-        ]);
-
-        const seen = new Set();
-        
-        // Filter companies to remove duplicates based on name
-        const uniqueCompanies = companies.filter(company => {
-            const duplicate = seen.has(company.name);
-            seen.add(company.name);
-            return !duplicate;
-        });
-
-        res.render('companies', { companies });
-    } catch (error) {
-        res.status(500).send("Error fetching Companies");
-    }
-});
-
+router.get('/companies', isLoggedIn, (req, res) => {
+    res.render('companies');
+  });
+  
 
 module.exports = router;

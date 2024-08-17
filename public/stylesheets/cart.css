@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Istok Web", sans-serif;
     background-color: #fce9cc; /* Background color */
     margin: 0;
     padding: 0;
@@ -158,6 +158,7 @@ body {
     background-color: #ff4d4d;
 }
 
+
 .cart-summary {
     flex: 1;
     text-align: left;
@@ -245,3 +246,226 @@ body {
         opacity: 1;
     }
 }
+
+@media (max-width: 768px) {
+    body {
+        font-family: "Istok Web", sans-serif;
+        background-color: #fce9cc; /* Background color */
+        margin: 0;
+        padding: 0;
+        height: 100vh; /* Full viewport height */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .cart-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 95%; /* Slightly narrower for mobile */
+        margin: 0 auto;
+        padding: 10px; /* Reduced padding for mobile */
+        flex: 1; /* Allow the container to grow and push footer to the bottom */
+    }
+    
+    .cart-title {
+        text-align: center;
+        color: #333;
+        margin: 0;
+        font-size: 24px; /* Larger title for readability */
+    }
+    
+    .cart-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fce9cc; /* Background color to avoid transparency issue */
+    }
+    
+    .cart-items {
+        flex: 1;
+        width: 100%; /* Full width for mobile */
+    }
+    
+    .cart-item {
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center;
+        margin-bottom: 15px; /* Increase margin between items */
+        padding: 15px; /* Increase padding for a better touch experience */
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cart-item img {
+        width: 100px; /* Larger image for mobile */
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 10px; /* Margin below the image */
+    }
+    
+    .cart-item-details {
+        display: flex;
+        flex-direction: column; /* Stack name, price, and options */
+        width: 100%;
+        align-items: center;
+        text-align: center; /* Center align text */
+    }
+    
+    .cart-item-info {
+        margin-bottom: 10px; /* Add space below the info section */
+    }
+    
+    .cart-item-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    .cart-item-price,
+    .cart-item-packing,
+    .cart-item-scheme {
+        font-size: 16px;
+        margin: 5px 0; /* Consistent margin for all */
+    }
+    
+    .cart-item-quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the quantity controls */
+        gap: 5px;
+        margin-top: 0px; /* Space above the quantity controls */
+    }
+    
+    .quantity-input {
+        width: 40px;
+        height: 30px;
+        font-size: 16px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    .quantity-button {
+        background-color: #00bfa5;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 20px; /* Adjust font size */
+        width: 30px;
+        height: 30px;
+    }
+    
+    .quantity-button:hover {
+        background-color: #009688;
+    }
+    
+    .remove-item {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 8px 15px; /* Adjust padding for touch targets */
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px; /* Space above the remove button */
+        font-size: 16px; 
+       /* Larger font size for readability */
+    }
+    
+    .remove-item:hover {
+        background-color: #ff4d4d;
+    }
+    
+    .cart-summary {
+        position: sticky; /* Stick to the bottom of the viewport */
+        bottom: 0; /* Stick to the bottom */
+        width: 100%; /* Full width for mobile */
+        text-align: center; /* Center align text */
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 15px; /* Reduced padding */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        margin: 0;
+    }
+    
+    .cart-summary h2 {
+        margin: 0;
+        color: #333;
+        font-size: 22px; /* Larger font for summary title */
+    }
+    
+    .cart-summary p {
+        margin: 0;
+        font-size: 16px;
+    }
+    
+    .checkout-button {
+        background-color: #00bfa5;
+        color: white;
+        border: none;
+        padding: 15px; /* Increased padding for better touch targets */
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px; /* Larger font for readability */
+        width: 90%;
+        margin-top: 10px;
+    }
+    
+    .checkout-button:hover {
+        background-color: #009688;
+    }
+    
+    .flash {
+        position: fixed;
+        bottom: 80px; /* Adjusted position for mobile */
+        right: 20px; /* Adjusted position for mobile */
+        z-index: 1000;
+    }
+    
+    .flash-message {
+        animation: slideIn 0.5s ease forwards;
+    }
+    
+    .flash-message.success,
+    .flash-message.error {
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px; /* Adjusted font size for mobile */
+        font-weight: 600;
+        width: fit-content;
+        max-width: 90%; /* Ensure the flash message fits the screen */
+        margin: 0 auto; /* Center the flash message */
+    }
+    
+    .flash-message.success {
+        border: 1px solid #155724;
+        background-color: #d4edda;
+        color: #155724;
+    }
+    
+    .flash-message.error {
+        border: 1px solid #721c24;
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}
+

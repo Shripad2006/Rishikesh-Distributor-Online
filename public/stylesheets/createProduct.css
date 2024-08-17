@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Istok Web", sans-serif;
     background-color: #FCE9C9;
     margin: 0;
     padding: 0;
@@ -10,33 +10,6 @@ body {
     display: flex;
 }
 
-.sidebar {
-    width: 200px;
-    background-color: #333;
-    padding-top: 20px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-}
-
-.sidebar a {
-    padding: 15px 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: block;
-}
-
-.sidebar a:hover {
-    background-color: #575757;
-}
-
-.sidebar a.active {
-    background-color: #4CAF50;
-    color: white;
-}
 
 .main-content {
     margin-left: 200px;

@@ -1,5 +1,3 @@
-
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +6,32 @@
     <title>Daily Orders</title>
     <link rel="stylesheet" href="/stylesheets/daily-orders.css">
     <link rel="stylesheet" href="/stylesheets/sidebar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <%- include('partials/header') %>
     <%- include('partials/sidebar') %>
 
+    <div class="search-container">
+        <form action="/owner/daily-orders" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search..." class="search-bar" required>
+            <button type="submit" class="search-button">
+                <img class="search-icon" src="/images/Frontend-images/search.png" alt="Search">
+            </button>
+        </form>
+    </div>
+
     <div class="container">
         <h1>Daily Orders</h1>
+
         <% if (orders.length > 0) { %>
             <% orders.forEach(order => { %>
                 <div class="order-card">
                     <div class="order-header">
                         <h2><%= order.user %></h2>
+                        <strong><%= order.profession %></strong>
                         <p>Order Date: <%= new Date(order.date).toLocaleDateString() %></p>
                     </div>
                     <div class="order-body">
@@ -27,7 +39,7 @@
                             <thead>
                                 <tr>
                                     <th>Product Name</th>
-                                    <th>company</th>
+                                    <th>Company</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
                                     <th>Packing</th>

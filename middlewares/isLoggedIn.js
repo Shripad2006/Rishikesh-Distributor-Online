@@ -9,9 +9,9 @@ module.exports = async (req, res, next) => {
     }
 
     try {
-        console.log('Token found, verifying...');
+        
         let decoded = jwt.verify(req.cookies.token, process.env.JWT_KEY);
-        console.log('Token decoded:', decoded);
+        
 
         let user = await userModel
             .findOne({ email: decoded.email })
@@ -22,8 +22,6 @@ module.exports = async (req, res, next) => {
             console.log('User not found for email:', decoded.email);
             return res.redirect('/login');
         }
-
-        console.log('User found:', user);
         req.user = user;
         next();
     } catch (err) {

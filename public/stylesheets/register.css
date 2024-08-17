@@ -11,6 +11,7 @@ body {
     align-items: center;
     overflow:auto;
     overflow-x: hidden;
+    overflow-y: auto;
     
 }
 
@@ -38,6 +39,9 @@ body::-webkit-scrollbar-track {
     height: fit-content;
     padding: 20px;
     border-radius: 10px;
+    width: 100%; /* Ensure the box takes up the full width */
+    padding: 15px; /* Adjust padding for mobile devices */
+    margin: 0 auto;
     
 }
 
@@ -80,13 +84,14 @@ body::-webkit-scrollbar-track {
 
 .input {
     width: 100%;
-    padding: 10px;
+    padding: 7px;
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: 10px;
     background-color: #FCE9C9;
     outline-color: #F4733D;
+    font-size: 20px;
 }
 
 .input-select {
@@ -108,11 +113,11 @@ body::-webkit-scrollbar-track {
 .input-pro {
     display: block;
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: #d8b271;
+    background-color: #FCE9C9;
     cursor: pointer;
     text-align: center;
 }
@@ -138,7 +143,7 @@ body::-webkit-scrollbar-track {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    font-size: larger;
+    font-size: 25px;
     align-items: center;
 }
 
@@ -232,5 +237,82 @@ body::-webkit-scrollbar-track {
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+@media (max-width: 768px) {
+    .box {
+        padding: 15px;
+    }
+
+    .heading {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .img1,.img2{
+        display: none;
+    }
+    .input{
+        width: 330px;
+    }
+    .input-select {
+        width: 330px;
+        padding: 10px;
+        
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: #FCE9C9;
+        outline-color: #F4733D;
+    }
+    
+    .input-select option {
+        padding: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+    .input-pro {
+      
+        width: 330px;
+    
+    }
+    .form{
+        width: 340px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .form-1, .form-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 5px;
+        
+        
+    }
+    .form-container {
+        flex-direction: column; /* Stack forms vertically on mobile */
+    }
+
+    .form-1, .form-2 {
+        width: 100%; /* Ensure forms take up full width */
+    }
+
+    .input-group {
+        margin-bottom: 10px; /* Increase margin for better spacing */
+    }
+
+    .btn {
+        width: 100%; /* Ensure button takes up full width */
+        font-size: 18px; /* Adjust font size for mobile */
     }
 }

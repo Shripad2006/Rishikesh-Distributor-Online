@@ -37,6 +37,7 @@
             <div class="form-container">
                 <form action="/users/register" method="post" enctype="multipart/form-data">
                     <div class="form">
+                        
                         <div class="form-1">
                             <div class="input-group">
                                 <label for="fullName">Full Name</label>
@@ -64,10 +65,8 @@
                             </div>
                             <div class="input-group">
                                 <label for="profilePicture">Upload Your Profile Picture</label>
-                                <label for="profilePicture" class="input-pro">
-                                    Choose File
-                                    <input type="file" name="profilePicture" id="profilePicture" accept="image/*">
-                                </label>
+                                <input class="input-pro" type="file" id="profilePicture" name="profilePicture" accept="image/*" required><br><br>
+
                             </div>                   
                         </div>
                         <div class="form-2">

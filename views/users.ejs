@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/users.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <%- include('partials/sidebar') %>
+
+    <div class="search-container">
+        <form action="/owner/users" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search..." class="search-bar" required>
+            <button type="submit" class="search-button">
+                <img class="search-icon" src="/images/Frontend-images/search.png" alt="Search">
+            </button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h1>All Users</h1>
+        <% if (users.length === 0) { %>
+            <p>No users found</p>
+        <% } else { %>
+            <table class="users-list">
+                <thead>
+                    <tr>
+                        <th>Profession</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach((user) => { %>
+                        <tr>
+                            <td><%= user.profession %></td>
+                            <td><%= user.userName %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.phoneNumber %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>

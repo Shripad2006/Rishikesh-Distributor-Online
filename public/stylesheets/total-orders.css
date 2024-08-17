@@ -1,12 +1,57 @@
 /* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Istok Web", sans-serif;
     margin: 0;
     padding: 0;
     background-color: #FCE9C9;
     color: #333;
+    position: relative;
 }
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: sticky;
+    top: 80px;
+    /* Adjust this as needed */
+    z-index: 100;
+    /* Ensure it appears above other content */
+}
+
+.search-form {
+
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    padding: 10px;
+    /* Optional padding for better spacing */
+}
+
+.search-bar {
+    font-size: large;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    padding-inline-start: 10px;
+    border-radius: 50px;
+    background-color: #bae9eb;
+}
+
+.search-button {
+    border: none;
+    border-radius: 50px;
+    background-color: #bae9eb;
+}
+
+.search-icon {
+    height: 20px;
+    padding: 10px;
+}
+
 
 
 header h1 {
@@ -49,4 +94,39 @@ th, td {
 
 th {
     background-color: #FCE9C9;
+}
+
+@media (max-width:768px) {
+    .search-bar {
+        width: 70%;
+        height: 15px;
+    }
+    .search-icon {
+        height: 15px;
+        padding: 10px;
+    }
+    .search-container {
+       
+        top: 60px;
+        
+    }
+    .order-card {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    table {
+        width: 100%;
+        font-size: 0.8em;
+        overflow-x: auto;
+        display: block;
+    }
+    
+    th, td {
+        padding: 6px;
+    }
+
+   
+  
 }

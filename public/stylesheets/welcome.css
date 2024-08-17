@@ -80,7 +80,7 @@ body {
 } 
 
 .register:hover{    
-    background-color: rgb(243, 79, 107);
+    background-color: #df6036;
     transform: scale(1.05);
 }
 .login:hover {
@@ -187,5 +187,95 @@ body {
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .body {
+        flex-direction: column;
+        align-items: center;
+        justify-content:first baseline;
+        
+    }
+
+    .left-side {
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+    
+    .title {
+        
+        height: 380px;
+        margin: 0 auto;
+        font-size: 1.8em;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .buttons {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5%;
+        gap: 10px;
+        margin: 10px;
+    }
+
+    .buttons a {
+        width: 80%;
+        margin: 10px 0;
+        font-size: 22px;
+    }
+
+    .img1{
+        position: absolute; /* Position the image absolutely */
+        top: calc(95% - 125px); /* Adjust the top position */
+        left: calc(5% - 175px); /* Adjust the left position */
+        height: auto;
+        width: 80%;
+        transform: translateX(-50%); /* Center horizontally */
+        bottom: 20px; 
+        animation: rotateClockwise 25s linear infinite; /* Animation properties */
+        transform-origin: center center; /* Rotate around the center */    
+    }
+    
+    .img2{
+        position: absolute; /* Position the image absolutely */
+        top: calc(95% - 125px); /* Adjust the top position */
+        left: calc(95% - 140px); /* Adjust the left position */
+        height: auto;
+        width: 80%;
+        transform: translateX(-50%); /* Center horizontally */
+        bottom: 20px; 
+        animation: rotateCounterClockwise 25s linear infinite; /* Animation properties */
+        transform-origin: center center; /* Rotate around the center */    
+    }
+    .img3{
+        position: absolute; /* Position the image absolutely */
+        top: calc(80% - 50px); /* Adjust the top position */
+        left: calc(50% - 60px); /* Adjust the left position */
+        height: auto;
+        width: 30%;
+        transform: translateX(-50%); /* Center horizontally */
+        bottom: 20px; 
+        animation: rotateClockwise 25s linear infinite; /* Animation properties */
+        transform-origin: center center; /* Rotate around the center */
+    }
+    
+    @keyframes rotateClockwise {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes rotateCounterClockwise {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(-360deg);
+        }
     }
 }
