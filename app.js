@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
 
-const MONGODB_URI= "mongodb+srv://shripadrkatta:h0lbBzMZbntiEowt@rishikesh-distributor-o.epfxaww.mongodb-dev.net/?retryWrites=true&w=majority&appName=Rishikesh-Distributor-Online";
+const MONGODB_URI= "mongodb+srv://shripadrkatta:h0lbBzMZbntiEowt@rishikesh-distributor-o.epfxaww.mongodb-dev.net/Rishikesh-Distributor-Online?retryWrites=true&w=majority";
 
 
 mongoose.connect(MONGODB_URI)
