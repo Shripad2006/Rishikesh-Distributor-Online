@@ -11,12 +11,15 @@
 <body>
     <div class="nav">
         <nav class="navbar">
-            <div class="navbar-brand">BRAND NAME</div>
+            <div class="navbar-brand">RISHIKESH DISTRIBUTOR</div>
             <div class="cart-profile">
                 
                 <a href="/profile">
-                    <img src="<%= user ? user.profilePicture : '/images/Frontend-images/user.png' %>" class="profilePicture" alt="Profile">
-                </a>
+                    <img 
+                    src="<%= user && user.profilePicture ? user.profilePicture : '/images/Frontend-images/user.png' %>" 
+                    class="profilePicture" 
+                    alt="Profile"
+                >                </a>
                 <a href="/home/cart">
                     <img src="/images/Frontend-images/cart.png" class="trolly" alt="Cart">
                 </a>

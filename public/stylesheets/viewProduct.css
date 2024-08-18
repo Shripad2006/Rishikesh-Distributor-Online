@@ -27,7 +27,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    width: 80%;
+    width: 90%;
     height: 65%;
     bottom: 50px;
 }
@@ -38,7 +38,7 @@ body {
     align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
-    width: 90%;
+    width: 50%;
 }
 
 .product-image img {
@@ -62,7 +62,7 @@ body {
 .product-details {
     margin-top: 40px;
     padding: 20px;
-    width: 550px;
+    width: 50%;
     height: 300px;
     overflow-y: auto;
 }
@@ -168,7 +168,7 @@ button:hover {
 
 .comp-box {
     height: auto;
-    width: 240px;
+    width: 90%;
     border: 2px solid #a2b7b7;
     padding-inline: 20px;
     border-radius: 15px;
@@ -183,7 +183,7 @@ button:hover {
     .box {
         flex-direction: column;
         width: 90%;
-        height: 600px;
+        height: 100%;
         padding: 15px;
         margin: 0;
         overflow-y: scroll;
@@ -258,9 +258,7 @@ button:hover {
        width: 90%;
         padding: 10px;
         border-radius: 10px;
-       
-
-        
+       margin-bottom: 10px;
     }
 
     .button {
@@ -273,6 +271,9 @@ button:hover {
         display: flex;
         flex-direction: row;
         margin: 0%;
+    }
+    .composition{
+        margin-bottom: 20px;
     }
     
 .box{
