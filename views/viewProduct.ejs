@@ -44,7 +44,7 @@
                         <p class="company-name">
                             <%= product.companyName %>
                         </p>
-                        <p class="mrp">MRP: ₹<%= product.productPrice[0] %>/-</p>
+                        <p class="mrp">Price: ₹<%= product.productPrice[0] %>/-</p>
                         <p class="scheme">Scheme: <%= product.schemes %>
                         </p>
                         <div class="packing-options">
@@ -54,7 +54,7 @@
                                     <input type="radio" id="option<%= index %>" name="packing" value="<%= option %>"
                                         class="option-input" data-price="<%= product.productPrice[index] %>">
                                     <label for="option<%= index %>" class="option-label">
-                                        <%= option %> - ₹<%= product.productPrice[index] %>
+                                        <%= option %> - ₹<%= product.productPrice[index] %>/-
                                     </label>
                                 </div>
                                 <% }); %>
