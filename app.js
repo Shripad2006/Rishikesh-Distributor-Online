@@ -11,6 +11,7 @@ const expressSession = require('express-session');
 const flash = require('connect-flash');
 
 const PORT = process.env.PORT || 3000;
+const JWT_KEY = process.env.JWT_KEY || 'default_jwt_key'; 
 
 // Connect to MongoDB
 
@@ -35,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(expressSession({
-    secret: process.env.JWT_KEY,
+    secret:JWT_KEY,
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({ mongoUrl: MONGODB_URI }), 
