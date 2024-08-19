@@ -56,7 +56,7 @@ app.use(attachUserToLocals);
 
 // Static files
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Import Routes
 const welcomeRouter = require("./routes/welcome");
