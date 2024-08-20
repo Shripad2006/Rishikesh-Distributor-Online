@@ -39,8 +39,12 @@ module.exports.registerUser = async (req, res) => {
         let profilePicture = `/images/Frontend-images/user.png`; // Default image
 
         if (req.file) {
-            const fileData = req.file.buffer.toString('base64');
-            profilePicture = `data:${req.file.mimetype};base64,${fileData}`;
+            
+            const fileName = `${Date.now()}-${req.file.originalname}`;
+            const filePath = path.join(__dirname, '../public/images/uploads', fileName);
+           
+            fs.writeFileSync(filePath, req.file.buffer);
+            profilePicture = `/images/uploads/${fileName}`;
         }
 
         const createdUser = await userModel.create({
@@ -55,7 +59,7 @@ module.exports.registerUser = async (req, res) => {
             taluka,
             city,
             password: hashedPassword,
-            isAdmin: false,
+            isAdmin:false,
         });
 
         const token = generateToken(createdUser);

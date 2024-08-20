@@ -10,8 +10,10 @@ const path = require("path");
 const expressSession = require('express-session');
 const flash = require('connect-flash');
 
+
+
 const PORT = process.env.PORT || 3000;
-const JWT_KEY = process.env.JWT_KEY || 'default_jwt_key'; 
+const JWT_KEY = process.env.JWT_KEY || 'shripad_katta'; 
 
 // Connect to MongoDB
 
@@ -19,12 +21,12 @@ const MONGODB_URI= "mongodb+srv://shripadrkatta:vWtERiMGt3a2NMpm@rishikesh-distr
 
 
 mongoose.connect(MONGODB_URI)
-  .then(() => {
-    debug("Connected to MongoDB successfully");
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err.message);
-  });
+.then(() => {
+  debug("Connected to MongoDB successfully");
+})
+.catch((err) => {
+  console.error("Error connecting to MongoDB:", err.message);
+});
 
 module.exports = mongoose.connection;
 
@@ -36,11 +38,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(expressSession({
-    secret:JWT_KEY,
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: MONGODB_URI }), 
-    cookie: { secure: true }
+  secret:JWT_KEY,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false },
+  store: MongoStore.create({ mongoUrl: MONGODB_URI }), 
 }));
 app.use(flash());
 
@@ -68,7 +70,7 @@ const profileRouter = require("./routes/profileRouter");
 const orderRouter = require('./routes/orderRouter');
 const servicesRouter = require('./routes/services');
 const contactRouter = require('./routes/contact');
-
+const cartCount = require('./routes/header')
 // Routes
 app.use('/', welcomeRouter);
 app.use('/owner', ownerRouter);
@@ -79,6 +81,7 @@ app.use('/profile', profileRouter);
 app.use('/order', orderRouter);
 app.use('/services', servicesRouter);
 app.use('/contact', contactRouter);
+app.use('/cart/count', cartCount)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

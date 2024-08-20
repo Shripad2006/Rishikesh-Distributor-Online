@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services</title>
+    <title>Rishikesh-Distributor-Online Services</title>
     <link rel="stylesheet" href="/stylesheets/services.css">
 </head>
 <body>
@@ -38,11 +38,11 @@
 
                                <img class="profile-img" src="<%= user.profilePicture %>" alt="Profile Picture">
                                
-                               <p class="username"><%= comment.user.userName %></p>
+                               <p class="username">@<%= comment.user.userName %></p>
                             </div>
                             <p class="text"><%= comment.content %></p>
                             <form method="post" action="/services/like/<%= comment._id %>" class="like-form">
-                                <p class="likes"><%= comment.likes.length %></p>
+                                <p class="likes"><%= comment.likes.length %> likes</p>
                                 <% if (comment.likes.includes(currentUserId)) { %>
                                     <button type="submit" class="unlike-button">
                                         <img src="/images/Frontend-images/like.png" alt="Unlike">

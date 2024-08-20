@@ -34,10 +34,16 @@ body {
     justify-content: center;
     gap: 15px;
 }
+ 
 
 .trolly {
     height: 35px;
+    box-sizing: border-box;
+    
+    
 }
+
+
 
 .profilePicture {
     height: 35px;

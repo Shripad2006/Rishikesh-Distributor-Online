@@ -6,11 +6,12 @@ const userModel = require('../models/users-model');
 const SearchMiddleware = require('../middlewares/search');
 
 // Use SearchMiddleware with the 'products' model for this route
-router.get('/', SearchMiddleware('products'), isLoggedIn, async (req, res) => {
+router.get('/' ,SearchMiddleware('products'), isLoggedIn, async (req, res) => {
     try {
         // Use req.results from the middleware
         const products = req.results;
         const success = req.flash('success');
+       
         res.render('home', { products, success,searchQuery: req.searchQuery });
     } catch (error) {
         console.error("Error fetching products:", error);

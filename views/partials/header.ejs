@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rishikesh-Distributor-Online</title>
     <link rel="stylesheet" href="/stylesheets/header.css">
 </head>
 
@@ -20,9 +20,11 @@
                     class="profilePicture" 
                     alt="Profile"
                 >                </a>
-                <a href="/home/cart">
-                    <img src="/images/Frontend-images/cart.png" class="trolly" alt="Cart">
-                </a>
+                <div class="cart">
+                    <a href="/home/cart">
+                        <img src="/images/Frontend-images/cart.png" class="trolly" alt="Cart">
+                    </a>
+                </div>
                 <div class="menu-toggle" id="menuToggle">☰</div>
                 <div class="navbar-links" id="navbarLinks">
                     <div class="links">
@@ -44,14 +46,6 @@
                 </nav>
             </div>
             
-            
-            <script>
-                const menuToggle = document.getElementById('menuToggle');
-                const navbarLinks = document.getElementById('navbarLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navbarLinks.classList.toggle('show');
-        });
-    </script>
+       <script src="/javascripts/header.js"></script>
 </body>
 </html>
