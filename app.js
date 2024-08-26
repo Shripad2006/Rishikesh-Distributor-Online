@@ -17,7 +17,7 @@ const JWT_KEY = process.env.JWT_KEY || 'shripad_katta';
 
 // Connect to MongoDB
 
-const MONGODB_URI= "mongodb+srv://shripad:shripad2006@rishikesh-distributor-o.k4jblbo.mongodb.net/?retryWrites=true&w=majority&appName=Rishikesh-Distributor-Online";
+const MONGODB_URI= "mongodb+srv://shripad:HNSIofC7ps5OSyda@rishikesh-distributor-o.k4jblbo.mongodb.net/?retryWrites=true&w=majority&appName=Rishikesh-Distributor-Online";
 
 
 mongoose.connect(MONGODB_URI)
