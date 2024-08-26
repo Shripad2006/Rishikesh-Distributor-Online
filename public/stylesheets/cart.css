@@ -22,6 +22,21 @@ body {
     margin-bottom: 20px;
 }
 
+input{
+    
+    width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: 'Istok Web', sans-serif;
+    border: 2px solid #FBD18A; /* Border color to match your theme */
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #333;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
 .cart-content {
     display: flex;
     justify-content: space-between;
@@ -181,6 +196,11 @@ body {
     margin: 10px 0;
     font-size: 16px;
 }
+.total{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .checkout-button {
     background-color: #00bfa5; /* Add to Cart button color */
@@ -269,6 +289,10 @@ body {
         flex: 1; /* Allow the container to grow and push footer to the bottom */
     }
     
+.input{
+    width: 180px;
+}
+
     .cart-title {
         text-align: center;
         color: #333;

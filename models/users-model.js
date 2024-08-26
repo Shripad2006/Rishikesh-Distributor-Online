@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema({
     phoneNumber: String,
     profession: {
         type: String,
-        enum: ['doctor', 'medicalStore', 'mr'],
+        enum: ['Doctor', 'Medical Store', 'Medical Representative','Salesman'],
         required: [true, 'Profession is required'],
     },
     profilePicture: String,
