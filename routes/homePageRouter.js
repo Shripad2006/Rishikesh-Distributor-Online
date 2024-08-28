@@ -4,6 +4,8 @@ const isLoggedIn = require('../middlewares/isLoggedIn');
 const ProductModel = require('../models/products-model');
 const userModel = require('../models/users-model');
 const SearchMiddleware = require('../middlewares/search');
+const { route } = require('./services');
+const productsModel = require('../models/products-model');
 
 // Use SearchMiddleware with the 'products' model for this route
 router.get('/' ,SearchMiddleware('products'), isLoggedIn, async (req, res) => {
@@ -36,6 +38,17 @@ router.get('/product/:productId', (req, res) => {
             res.status(500).send('Error fetching product');
         });
 });
+
+router.post('/delete-product/:id', async (req,res)=>{
+   try {
+    const productId= await ProductModel.findById(req.params.id);
+    const deleteProduct = await ProductModel.findByIdAndDelete(req.params.id)
+    req.flash('success','Product Deleted Successfuly')
+    res.redirect('/home')
+   } catch (error) {
+    res.status(500)
+   }
+})
 
 router.get('/cart', isLoggedIn, async (req, res) => {
     try {

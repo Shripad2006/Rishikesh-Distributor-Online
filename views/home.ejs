@@ -50,11 +50,16 @@
                                 <h3><%= product.productName %></h3>
                                 <p><%= product.companyName %></p>
                                 <div class="pricing">
-                                    <p>Starting Price:</p><h3> ₹<%= product.productPrice[0] %>/-</h3>
+                                    <p>MRP:</p><h3> ₹<%= product.productPrice[0] %>/- <%=product.productPacking[0]%></h3>
                                 </div>
                             </div>
                             <button type="submit" class="view-product">View Product</button>
                         </a>
+                        <% if (user && user.isAdmin) { %>
+                        <form class="delete-product" action="/home/delete-product/<%= product._id %>" method="post">
+                            <button class="delete-button" type="submit">Delete Product</button>
+                        </form>
+                        <% } %>
                     </div>
                 <% }); %>
             <% } else { %>

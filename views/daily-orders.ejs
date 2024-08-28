@@ -47,6 +47,7 @@
                             </thead>
                             <tbody>
                                 <% order.products.forEach(product => { %>
+                                    <% if (product && product.product) { %> 
                                     <tr class="product">
                                         <td><%= product.product.productName %></td>
                                         <td><%= product.product.companyName %></td>
@@ -54,6 +55,11 @@
                                         <td>₹<%= product.price %></td>
                                         <td><%= product.packing %></td>
                                     </tr>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="5">Product deleted by admin</td>
+                                        </tr>
+                                    <% } %>
                                 <% }) %>
                             </tbody>
                         </table>
