@@ -1,0 +1,1 @@
+user-agent: *Disallow:Sitemap: https://rishikesh-distributor-online.onrender.com/sitemap.xml
